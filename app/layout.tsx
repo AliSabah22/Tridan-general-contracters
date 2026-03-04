@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_CA",
+    siteName: SITE.name,
+    title: `${SITE.name} | Home Renovations Mississauga, Toronto, Milton`,
+    description: "Professional home renovations in Mississauga, Toronto, and Milton. Request a free estimate.",
+    url: SITE.baseUrl,
   },
 };
 

@@ -4,7 +4,7 @@ import ProcessSteps from "@/components/ProcessSteps";
 import ProjectGallery from "@/components/ProjectGallery";
 import FAQAccordion from "@/components/FAQAccordion";
 import EstimateForm from "@/components/EstimateForm";
-import { SERVICES, WHY_CHOOSE } from "@/lib/constants";
+import { SERVICES, WHY_TRIDAN } from "@/lib/constants";
 import { getLocationContent, type CitySlug } from "@/lib/locationContent";
 import Link from "next/link";
 
@@ -57,10 +57,10 @@ export default function LocationPageContent({ slug }: LocationPageContentProps) 
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-neutral-900">Why Choose Tridan</h2>
           <ul className="mt-6 grid gap-4 sm:grid-cols-2">
-            {WHY_CHOOSE.map((item, i) => (
+            {WHY_TRIDAN.map((item, i) => (
               <li key={i} className="flex items-start gap-3">
                 <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-600">✓</span>
-                <span className="text-neutral-700">{item}</span>
+                <span className="text-neutral-700"><strong>{item.title}.</strong> {item.description}</span>
               </li>
             ))}
           </ul>
@@ -86,7 +86,7 @@ export default function LocationPageContent({ slug }: LocationPageContentProps) 
         <h2 className="text-2xl font-bold text-neutral-900">Frequently Asked Questions</h2>
         <p className="mt-2 text-neutral-600">Common questions about renovations in {cityName}.</p>
         <div className="mt-10">
-          <FAQAccordion items={content.faqs} />
+          <FAQAccordion items={content.faqs.map((f) => ({ q: f.question, a: f.answer }))} />
         </div>
       </section>
       <section className="bg-primary-600 py-16 text-white">
@@ -94,11 +94,7 @@ export default function LocationPageContent({ slug }: LocationPageContentProps) 
           <h2 className="text-2xl font-bold sm:text-3xl">Request Your Free Renovation Estimate</h2>
           <p className="mt-3 text-primary-100">Get a clear quote for your {cityName} project. No obligation.</p>
           <div className="mt-10 rounded-xl bg-white p-6 text-left text-neutral-900">
-            <EstimateForm
-              redirectTo="/thank-you"
-              ctaText="Request Free Estimate"
-              showServiceSelect={true}
-            />
+            <EstimateForm mode="full" redirectTo="/thank-you" ctaText="Request Free Estimate" />
           </div>
           <p className="mt-4 text-sm text-primary-200">
             Or call us at <a href="tel:4167004230" className="font-semibold underline">(416) 700-4230</a>

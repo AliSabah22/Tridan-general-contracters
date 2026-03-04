@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import ProjectGallery from "@/components/ProjectGallery";
 import CTAStrip from "@/components/CTAStrip";
-import Link from "next/link";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export const metadata: Metadata = {
   title: "Renovation Projects",
@@ -18,17 +18,17 @@ export default function ProjectsPage() {
         description="A look at our recent work across the GTA."
         variant="compact"
       />
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-        <p className="text-neutral-600">From kitchen remodels to basement finishes, see the quality and care we bring to every project.</p>
-        <div className="mt-10">
-          <ProjectGallery />
+      <AnimatedSection className="py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <p className="max-w-2xl text-neutral-600">
+            From kitchen remodels to basement finishes, see the quality and care we bring to every
+            project.
+          </p>
+          <div className="mt-10">
+            <ProjectGallery />
+          </div>
         </div>
-        <div className="mt-12 text-center">
-          <Link href="/contact" className="inline-flex rounded-lg bg-primary-600 px-6 py-3 font-semibold text-white hover:bg-primary-700">
-            Get a Free Estimate for Your Project
-          </Link>
-        </div>
-      </section>
+      </AnimatedSection>
       <CTAStrip />
     </>
   );

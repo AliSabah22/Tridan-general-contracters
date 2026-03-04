@@ -1,44 +1,106 @@
-import type { Metadata } from "next";
+"use client";
+
+import { motion } from "framer-motion";
 import Hero from "@/components/Hero";
 import EstimateForm from "@/components/EstimateForm";
 import { SITE } from "@/lib/constants";
+import { Phone, Mail, MapPin, CheckCircle2 } from "lucide-react";
+import AnimatedSection from "@/components/AnimatedSection";
+import { staggerItemVariants } from "@/components/AnimatedStagger";
+import { tween } from "@/lib/motion";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Contact Tridan General Construction for a free renovation estimate. Call or submit the form. Serving Mississauga, Toronto, and Milton.",
-};
+const WHAT_HAPPENS = [
+  "We call or text within 24 hours",
+  "Quick questions about your project",
+  "Schedule a site visit",
+  "You receive a detailed quote",
+];
 
 export default function ContactPage() {
   return (
     <>
       <Hero
         title="Get Your Free Estimate"
-        description={"Tell us about your project. We'll get back to you with a clear quote."}
+        description="Tell us about your project. We'll get back to you with a clear quote."
         variant="compact"
       />
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-2">
-          <div>
-            <h2 className="text-2xl font-bold text-neutral-900">Request a Free Estimate</h2>
-            <p className="mt-2 text-neutral-600">Fill out the form and we&apos;ll contact you to discuss your project.</p>
-            <EstimateForm ctaText="Request Free Estimate" />
-          </div>
-          <div>
-            <h2 className="text-2xl font-bold text-neutral-900">Contact Us Directly</h2>
-            <div className="mt-6 space-y-4">
-              <p className="text-neutral-700">
-                <span className="font-medium">Phone:</span>{" "}
-                <a href={`tel:${SITE.phoneRaw}`} className="text-primary-600 hover:underline">{SITE.phone}</a>
-              </p>
-              <p className="text-neutral-700">
-                <span className="font-medium">Email:</span>{" "}
-                <a href={`mailto:${SITE.email}`} className="text-primary-600 hover:underline">{SITE.email}</a>
-              </p>
-              <p className="text-neutral-700">
-                <span className="font-medium">Service areas:</span> {SITE.serviceAreaStr}
-              </p>
-            </div>
+        <div className="grid gap-12 lg:grid-cols-5">
+          <AnimatedSection as="div" className="lg:col-span-3">
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: tween.normal.duration }}
+              className="text-2xl font-bold text-neutral-900"
+            >
+              Request a Free Estimate
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: tween.normal.duration, delay: 0.06 }}
+              className="mt-2 text-neutral-600"
+            >
+              Fill out the form and we&apos;ll contact you to discuss your project.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: tween.normal.duration, delay: 0.12 }}
+              className="mt-8"
+            >
+              <EstimateForm mode="full" ctaText="Request Free Estimate" />
+            </motion.div>
+          </AnimatedSection>
+          <div className="space-y-10 lg:col-span-2">
+            <AnimatedSection as="div">
+              <h2 className="text-xl font-bold text-neutral-900">What happens next</h2>
+              <motion.ul
+                className="mt-4 space-y-3"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={{
+                  visible: { transition: { staggerChildren: 0.08 } },
+                  hidden: {},
+                }}
+              >
+                {WHAT_HAPPENS.map((step, i) => (
+                  <motion.li
+                    key={i}
+                    variants={staggerItemVariants}
+                    className="flex items-start gap-3"
+                  >
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary-600" />
+                    <span className="text-neutral-700">{step}</span>
+                  </motion.li>
+                ))}
+              </motion.ul>
+            </AnimatedSection>
+            <AnimatedSection as="div">
+              <h2 className="text-xl font-bold text-neutral-900">Contact us directly</h2>
+              <ul className="mt-4 space-y-4">
+                <li className="flex items-center gap-3">
+                  <Phone className="h-5 w-5 text-primary-600" />
+                  <a href={`tel:${SITE.phoneRaw}`} className="text-neutral-700 hover:text-primary-600">
+                    {SITE.phone}
+                  </a>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Mail className="h-5 w-5 text-primary-600" />
+                  <a href={`mailto:${SITE.email}`} className="text-neutral-700 hover:text-primary-600">
+                    {SITE.email}
+                  </a>
+                </li>
+                <li className="flex items-center gap-3">
+                  <MapPin className="h-5 w-5 text-primary-600" />
+                  <span className="text-neutral-700">{SITE.serviceAreaStr}</span>
+                </li>
+              </ul>
+            </AnimatedSection>
           </div>
         </div>
       </section>

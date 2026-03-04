@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#292524"/>
+      <stop offset="100%" stop-color="#1c1917"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#g)"/>
+  <rect x="100" y="150" width="400" height="280" rx="8" fill="#3f3f46" opacity="0.8"/>
+  <rect x="520" y="200" width="360" height="200" rx="8" fill="#52525b" opacity="0.6"/>
+  <text x="600" y="360" font-family="system-ui,sans-serif" font-size="18" fill="#a1a1aa" text-anchor="middle">Hero image placeholder  swap for kitchen/bath renovation</text>
+</svg>
