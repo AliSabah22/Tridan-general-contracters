@@ -8,7 +8,7 @@ interface AnimatedSectionProps {
   children: React.ReactNode;
   className?: string;
   variants?: Variants;
-  transition?: { duration?: number; delay?: number; ease?: readonly number[] };
+  transition?: { duration?: number; delay?: number; ease?: string };
   as?: "section" | "div";
 }
 

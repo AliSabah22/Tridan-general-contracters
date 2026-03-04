@@ -1,13 +1,13 @@
 /**
  * Shared motion config for super smooth, high-level animations.
- * Use across all pages for consistent feel.
+ * Use string easings to avoid Framer Motion interpolation errors.
  */
 
 export const easing = {
-  smooth: [0.25, 0.46, 0.45, 0.94] as const, // easeOutQuad
-  outExpo: [0.19, 1, 0.22, 1] as const,
-  outBack: [0.34, 1.56, 0.64, 1] as const,
-  inOut: [0.65, 0, 0.35, 1] as const,
+  smooth: "easeOut" as const,
+  outExpo: "easeOut" as const,
+  outBack: "easeOut" as const,
+  inOut: "easeInOut" as const,
 };
 
 export const spring = {

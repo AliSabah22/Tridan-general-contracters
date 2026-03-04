@@ -67,7 +67,7 @@ export default function ServiceCards({ services, columns = 3, cityName }: Servic
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.45, ease: [0.19, 1, 0.22, 1], delay: i * 0.06 }}
+              transition={{ duration: 0.45, ease: "easeOut", delay: i * 0.06 }}
               whileHover={{ y: -6, transition: spring.smooth }}
             >
               <Link
@@ -89,7 +89,7 @@ export default function ServiceCards({ services, columns = 3, cityName }: Servic
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.45, ease: [0.19, 1, 0.22, 1], delay: i * 0.06 }}
+            transition={{ duration: 0.45, ease: "easeOut", delay: i * 0.06 }}
             whileHover={{ y: -6, transition: spring.smooth }}
             className="flex flex-col rounded-xl border border-neutral-200 bg-white p-6 shadow-sm"
           >

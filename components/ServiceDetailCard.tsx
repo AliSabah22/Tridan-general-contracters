@@ -78,7 +78,7 @@ export default function ServiceDetailCard({
       initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <div className="grid gap-10 rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm sm:gap-12 sm:p-10 lg:grid-cols-2 lg:items-center">
         {isEven ? (

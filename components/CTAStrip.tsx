@@ -24,7 +24,7 @@ export default function CTAStrip({
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: tween.normal.duration, ease: tween.outExpo }}
+      transition={{ duration: tween.normal.duration, ease: tween.normal.ease }}
     >
       <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
         <motion.h2
@@ -32,7 +32,7 @@ export default function CTAStrip({
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: tween.outExpo }}
+          transition={{ duration: 0.5, ease: tween.normal.ease }}
         >
           {title}
         </motion.h2>
@@ -41,7 +41,7 @@ export default function CTAStrip({
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.08, ease: tween.outExpo }}
+          transition={{ duration: 0.5, delay: 0.08, ease: tween.normal.ease }}
         >
           {subtitle}
         </motion.p>
@@ -50,7 +50,7 @@ export default function CTAStrip({
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.16, ease: tween.outExpo }}
+          transition={{ duration: 0.5, delay: 0.16, ease: tween.normal.ease }}
         >
           <motion.span whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.98 }} transition={spring.smooth}>
             <Link
